@@ -15,18 +15,19 @@ Before using the scripts, make sure you have:
 
 ## Project Structure
 
+```
 codnity_test/
-├─ back/ # Python Flask backend
-│ ├─ venv/ # Python virtual environment (created by setup.bat)
-│ ├─ api.py # Flask API
-│ └─ requirements.txt
-├─ front/ # React frontend (Vite)
-│ ├─ package.json
-│ └─ src/
-├─ setup.bat # Sets up backend and frontend dependencies
-├─ start.bat # Starts backend & frontend in separate terminals and opens browser
+├─ back/
+│  ├─ venv/
+│  ├─ api.py
+│  └─ requirements.txt
+├─ front/
+│  ├─ package.json
+│  └─ src/
+├─ setup.bat
+├─ start.bat
 └─ README.md
-
+```
 
 ---
 
@@ -36,62 +37,69 @@ codnity_test/
 
 ```bash
 cd codnity_test
+```
 
-    Run the setup script to install all dependencies:
+2. Run the setup script to install all dependencies:
 
+```bash
 setup.bat
+```
 
 This will:
+- Create a Python virtual environment in `back/` and install required packages from `requirements.txt`
+- Install npm packages for the React frontend in `front/`
+- It does not start the servers, so you remain in control of when to run them
 
-    Create a Python virtual environment in back/ and install required packages from requirements.txt.
+---
 
-    Install npm packages for the React frontend in front/.
-
-    It does not start the servers, so you remain in control of when to run them.
-
-Running the Project
+## Running the Project
 
 To start both backend and frontend:
 
+```bash
 start.bat
+```
 
 This will:
+- Open a new terminal for the Flask backend (`http://localhost:5000`)
+- Open a new terminal for the React frontend (`http://localhost:5173`)
+- Automatically open your default browser to the frontend URL
+- Both terminals remain open, allowing you to monitor logs and stop servers individually
 
-    Open a new terminal for the Flask backend (http://localhost:5000).
+---
 
-    Open a new terminal for the React frontend (http://localhost:5173).
-
-    Automatically open your default browser to the frontend URL.
-
-    Both terminals remain open, allowing you to monitor logs and stop servers individually.
-
-Running the Scraper Separately
+## Running the Scraper Separately
 
 If you want to run the scraper without starting the frontend or backend server:
 
-    Activate the Python virtual environment:
+1. Activate the Python virtual environment:
 
+```bash
 call back\venv\Scripts\activate
+```
 
-    Run the scraper manually:
+2. Run the scraper manually:
 
+```bash
 python back\api.py
+```
 
 You can then call the API endpoints directly or test the scraper in isolation.
-API Endpoints
+
+---
+
+## API Endpoints
 
 Once the backend is running, you can access:
 
-    GET /stories – Retrieve all stored stories.
+- `GET /stories` – Retrieve all stored stories
+- `GET /stories/newest` – Retrieve the newest story by creation date
+- `POST /stories/refresh` – Scrape latest stories, update points, and insert new ones
 
-    GET /stories/newest – Retrieve the newest story by creation date.
+---
 
-    POST /stories/refresh – Scrape latest stories, update points, and insert new ones.
+## Notes
 
-Notes
-
-    Make sure ports 5000 (backend) and 5173 (frontend) are free before starting.
-
-    Closing the terminal windows will stop the respective server.
-
-    You can refresh stories from the frontend using the Refresh button, or call /stories/refresh manually.
+- Make sure ports **5000** (backend) and **5173** (frontend) are free before starting
+- Closing the terminal windows will stop the respective server
+- You can refresh stories from the frontend using the **Refresh** button, or call `/stories/refresh` manually
