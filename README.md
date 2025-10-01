@@ -57,9 +57,9 @@ start.bat
 
 This will:
 
-    Open a new terminal for the Flask backend (http://127.0.0.1:5000).
+    Open a new terminal for the Flask backend (http://localhost:5000).
 
-    Open a new terminal for the React frontend (http://127.0.0.1:5173).
+    Open a new terminal for the React frontend (http://localhost:5173).
 
     Automatically open your default browser to the frontend URL.
 
