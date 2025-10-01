@@ -93,7 +93,6 @@ You can then call the API endpoints directly or test the scraper in isolation.
 Once the backend is running, you can access:
 
 - `GET /stories` – Retrieve all stored stories
-- `GET /stories/newest` – Retrieve the newest story by creation date
 - `POST /stories/refresh` – Scrape latest stories, update points, and insert new ones
 
 ---
